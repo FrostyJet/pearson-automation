@@ -8,6 +8,7 @@ import (
 	"time"
 
 	"github.com/go-rod/rod"
+	"golang.design/x/clipboard"
 )
 
 const (
@@ -62,6 +63,10 @@ func main() {
 		page.MustNavigate(jenkinsURL)
 	}
 
+	alertMessage := createAlertMessage(*envToDeploy)
+	clipboard.Write(clipboard.FmtText, []byte(alertMessage))
+	fmt.Println("Warning info copied to clipboard!")
+
 	time.Sleep(time.Minute * 10)
 }
 
@@ -72,4 +77,12 @@ func authenticate(page *rod.Page) {
 
 	// submit
 	page.MustElement("form button[type=submit]").MustClick()
+}
+
+func createAlertMessage(env string) (msg string) {
+	msg = "(paloudspeaker) React deployment alert\n \n"
+	msg += fmt.Sprintf("ENV: %s\n", env)
+	msg += "Status: In progress (hourglassdone)"
+
+	return
 }
