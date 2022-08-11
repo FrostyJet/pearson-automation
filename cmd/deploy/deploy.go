@@ -1,3 +1,6 @@
+// Example usage:
+// 	go run cmd/deploy/deploy.go -env ppe -branch release/Global-PMC-R35.3 -rod show
+
 package main
 
 import (

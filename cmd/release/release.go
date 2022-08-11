@@ -1,3 +1,6 @@
+// Example usage:
+// 	go run cmd/release/release.go -from release/Global-PMC-R35.3a -to release/Global-PMC-R35.3b
+
 package main
 
 import (
@@ -8,8 +11,6 @@ import (
 	"os/exec"
 	"strings"
 )
-
-// Usage: go run cmd/release/release.go -from release/Global-PMC-R35.3a -to release/Global-PMC-R35.3b
 
 func failOnError(msg string, err error) {
 	if err != nil {
