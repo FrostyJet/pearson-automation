@@ -128,7 +128,7 @@ func setSubmoduleTo(repo string, submodule string) bool {
 
 	for i, line := range lines {
 		if strings.Contains(line, "branch =") {
-			lines[i] = fmt.Sprintf("\tbranch = %s", submodule)
+			lines[i] = fmt.Sprintf("\t\tbranch = %s", submodule)
 		}
 	}
 
